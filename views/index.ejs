@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GET A RANDOM JOKE AND SAVE IT IF YOU LIKE IT!</title>
+ 
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>GET A RANDOM JOKE AND SAVE IT IF YOU LIKE IT!</h1>
+
+
+<!--here we are creating a ul so that the user can populate them 
+with their own phrases. you don't want to hard code it because then 
+they won't have the ability to do the other options that you give them
+(like, delete, thumbsdown) and it would never disappear.-->
+  <ul class="messages">
+  <% for(var i=0; i<messages.length; i++) {%>
+    <li class="message">
+      <span><%= messages[i].joke%></span>
+      <span><%= messages[i].msg %></span>
+      <span><%= messages[i].thumbUp %></span>
+      <span><%= messages[i].thumbsDown %></span>
+      <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+      <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+    </li>
+  <% } %>
+  </ul>
+  
+  <button type="submit" id ="jokey">Click to get a random joke!</button>
+
+  <h2 id = "jokeHere"></h2>
+
+  <h3>SAVE THE JOKE DOWN BELOW!</h3>
+
+  <form action="/messages" method="POST">
+    <input type="text" placeholder="Categorize the joke if you'd like!" name="name">
+    <input type="text" placeholder="What's the joke?!" name="msg">
+    <button type="submit">Click to save the joke!</button>
+  </form>
+  
+
+
+
+  <script src="main.js"></script>
+
+</body>
+</html>
